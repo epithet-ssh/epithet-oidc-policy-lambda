@@ -41,7 +41,7 @@ func main() {
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.Timeout(60 * time.Second))
 
-	r.Handle("/", policyserver.New(authenticator, authorizer))
+	r.Handle("/*", policyserver.New(authenticator, authorizer))
 
 	adapter := httpadapter.New(r)
 	h := handler{
