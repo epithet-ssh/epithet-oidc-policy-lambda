@@ -21,13 +21,14 @@ func main() {
 	issuer := os.Getenv("ISSUER")
 	audienceString := os.Getenv("AUDIENCE")
 	audience := strings.Split(audienceString, ",")
+	authorizerCommand := os.Getenv("AUTHORIZER_COMMAND")
 
 	authenticator, err := authenticator.New(jwksURL, issuer, audience)
 	if err != nil {
 		panic(err)
 	}
 
-	authorizer, err := authorizer.New()
+	authorizer, err := authorizer.New(authorizerCommand)
 	if err != nil {
 		panic(err)
 	}
