@@ -44,6 +44,8 @@ github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200107195638-767aafe9346e h1
 github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200107195638-767aafe9346e/go.mod h1:OX0kNkum64sLXfQ2v+fugbz9mu/XOdIA6+ySo6vcjfs=
 github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200107213942-924dd308aef7 h1:3sKJCVkecPr3UOrxhYvmvgUx2z1SH4quphyUIybeo8U=
 github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200107213942-924dd308aef7/go.mod h1:OX0kNkum64sLXfQ2v+fugbz9mu/XOdIA6+ySo6vcjfs=
+github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200108225459-03f996036bf7 h1:yjjJ9qHgbQd6IXRalt3GaHcVVUQ2RrxKwESRFcvQTNo=
+github.com/epithet-ssh/epithet-oidc-policy v0.0.0-20200108225459-03f996036bf7/go.mod h1:OX0kNkum64sLXfQ2v+fugbz9mu/XOdIA6+ySo6vcjfs=
 github.com/fatih/structs v1.1.0/go.mod h1:9NiDSp5zOcgEDl+j00MP/WkGVPOlPRLejGD8Ga6PJ7M=
 github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4/go.mod h1:T9YF2M40nIgbVgp3rreNmTged+9HrbNTIQf1PsaIiTA=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
