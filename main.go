@@ -8,6 +8,9 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/secretsmanager"
 	"github.com/awslabs/aws-lambda-go-api-proxy/httpadapter"
 	"github.com/epithet-ssh/epithet-oidc-policy/pkg/authenticator"
 	"github.com/epithet-ssh/epithet-oidc-policy/pkg/authorizer"
@@ -21,7 +24,21 @@ func main() {
 	issuer := os.Getenv("ISSUER")
 	audienceString := os.Getenv("AUDIENCE")
 	audience := strings.Split(audienceString, ",")
-	authorizerCommand := os.Getenv("AUTHORIZER_COMMAND")
+	authorizerCommandSecretName := os.Getenv("AUTHORIZER_COMMAND_SECRET_NAME")
+
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+
+	svc := secretsmanager.New(sess)
+	rs, err := svc.GetSecretValue(&secretsmanager.GetSecretValueInput{
+		SecretId: aws.String(authorizerCommandSecretName),
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	authorizerCommand := aws.StringValue(rs.SecretString)
 
 	authenticator, err := authenticator.New(jwksURL, issuer, audience)
 	if err != nil {
