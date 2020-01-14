@@ -1,7 +1,7 @@
 .PHONY: all
 all: epithet-oidc-policy-lambda.zip				## run tests and build binaries
 
-epithet-oidc-policy-lambda:					## build linux binary for lambda
+epithet-oidc-policy-lambda: *.go					## build linux binary for lambda
 	GOOS=linux GOARCH=amd64 go build
 
 epithet-oidc-policy-lambda.zip: epithet-oidc-policy-lambda		## build lambda zip

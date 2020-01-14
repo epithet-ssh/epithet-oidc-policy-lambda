@@ -12,9 +12,9 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/secretsmanager"
 	"github.com/awslabs/aws-lambda-go-api-proxy/httpadapter"
-	"github.com/epithet-ssh/epithet-oidc-policy/pkg/authenticator"
-	"github.com/epithet-ssh/epithet-oidc-policy/pkg/authorizer"
-	"github.com/epithet-ssh/epithet-oidc-policy/pkg/policyserver"
+	"github.com/epithet-ssh/epithet-oidc/pkg/authenticator"
+	"github.com/epithet-ssh/epithet-oidc/pkg/authorizer"
+	"github.com/epithet-ssh/epithet-oidc/pkg/policyserver"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
