@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -22,8 +21,8 @@ import (
 func main() {
 	jwksURL := os.Getenv("JWKS_URL")
 	issuer := os.Getenv("ISSUER")
-	audienceString := os.Getenv("AUDIENCE")
-	audience := strings.Split(audienceString, ",")
+	audience := os.Getenv("AUDIENCE")
+	clientID := os.Getenv("CLIENT_ID")
 	authorizerCommandSecretName := os.Getenv("AUTHORIZER_COMMAND_SECRET_NAME")
 
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
@@ -40,7 +39,7 @@ func main() {
 
 	authorizerCommand := aws.StringValue(rs.SecretString)
 
-	authenticator, err := authenticator.New(jwksURL, issuer, audience)
+	authenticator, err := authenticator.New(jwksURL, issuer, audience, clientID)
 	if err != nil {
 		panic(err)
 	}
